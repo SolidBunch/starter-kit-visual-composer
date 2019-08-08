@@ -6,11 +6,11 @@ use \StarterKitModule\VisualComposer\Controller;
 
 
 add_filter( 'starter_kit_register_module', static function ( array $class_map ) {
-	$class_map['hooks'][]           = Hooks::class;
-	$class_map[ Controller::class ] = DI\create( Controller::class );
+	$class_map['hooks'][ Hooks::class ] = Hooks::class;
+	$class_map[ Controller::class ]     = DI\create( Controller::class );
 
 	return $class_map;
-} );
+}, 10 );
 
 if ( ! function_exists( 'is_vc' ) ) {
 	/**
