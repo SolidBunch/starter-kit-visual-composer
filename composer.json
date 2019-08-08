@@ -1,0 +1,25 @@
+{
+    "name": "solidbunch/starter-kit-visual-composer",
+    "version": "1.0.0",
+    "description": "Starter Kit Modular - Addon that provides Visual Composer capability",
+    "type": "library",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "SolidBunch",
+            "email": "contact@solidbunch.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.0",
+        "php-di/php-di": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "StarterKitModule\\VisualComposer\\": "src"
+        },
+        "files": [
+            "functions.php"
+        ]
+    }
+}
