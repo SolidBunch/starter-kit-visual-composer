@@ -42,7 +42,7 @@ class Controller {
 		return $class_string;
 	}
 
-	public function register_post_type() {
+	public static function register_post_type() {
 
 		register_post_type( 'composerlayout', [
 			'label'               => esc_html__( 'Header / Footer', 'starter-kit' ),
