@@ -29,15 +29,11 @@ class Hooks implements HooksInterface {
 
 	/**
 	 * Controllers constructor.
+	 *
+	 * @param Controller $controller
 	 */
-	public function __construct() {
-		try {
-			$this->controller = is_vc() ? Controller::class : null;
-		} catch ( Exception $exception ) {
-			wlog( $exception );
-
-			$this->controller = null;
-		}
+	public function __construct( Controller $controller ) {
+		$this->controller = $controller;
 	}
 
 	/**
