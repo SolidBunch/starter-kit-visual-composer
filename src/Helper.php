@@ -1,14 +1,35 @@
 <?php
+/**
+ * Visual Composer Helper file - module helper file
+ *
+ * LICENSE: GPL-3.0
+ *
+ * @package    StarterKitModules\VisualComposer
+ * @author     SolidBunch <contact@solidbunch.com>
+ * @since      File available since Release 1.0.0
+ */
 
 namespace StarterKitModule\VisualComposer;
 
 use WP_Query;
 
+/**
+ * Helper
+ *
+ * Helper - module helper functions.
+ *
+ * @category   WordPress
+ * @package    StarterKitModules\VisualComposer
+ * @author     SolidBunch
+ * @link       https://solidbunch.com
+ * @version    Release: 1.0.0
+ * @since      Class available since Release 1.0.0
+ */
 class Helper {
 	/**
 	 * Get default composer layout
 	 *
-	 * @param string $layout_type
+	 * @param string $layout_type - layout type to load.
 	 *
 	 * @return WP_Query
 	 */
@@ -39,7 +60,7 @@ class Helper {
 	/**
 	 * Get all composer layouts
 	 *
-	 * @param string $layout_type
+	 * @param string $layout_type - layout type to load.
 	 *
 	 * @return WP_Query
 	 */
@@ -64,7 +85,7 @@ class Helper {
 	}
 
 	/**
-	 * @param string $layout_type
+	 * @param string $layout_type - layout type to load.
 	 *
 	 * @return string
 	 */
@@ -75,7 +96,7 @@ class Helper {
 		if ( is_home() ) {
 			$post_id = get_option( 'page_for_posts' );
 		} else {
-			$post_id = $post ? $post->ID : 0 ;
+			$post_id = $post ? $post->ID : 0;
 		}
 
 		if ( $post_id
@@ -93,8 +114,9 @@ class Helper {
 			$default_layout_query = self::get_default_layout( $layout_type );
 
 			if ( $default_layout_query->posts && $default_layout_query->posts[0]->post_status === 'publish' ) {
-				return do_shortcode( apply_filters( 'the_content',
-					$default_layout_query->posts[0]->post_content ) );
+				return do_shortcode(
+					apply_filters( 'the_content', $default_layout_query->posts[0]->post_content )
+				);
 			}
 
 		} else {

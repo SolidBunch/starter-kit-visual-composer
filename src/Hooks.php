@@ -4,21 +4,26 @@
  *
  * LICENSE: GPL-3.0
  *
- * @package    StarterKit/Controllers
+ * @package    StarterKitModules\VisualComposer
  * @author     SolidBunch <contact@solidbunch.com>
  * @since      File available since Release 1.0.0
  */
 
 namespace StarterKitModule\VisualComposer;
 
-use Exception;
 use StarterKit\Hooks\HooksInterface;
-use function is_vc;
 
 /**
- * Class VisualComposer
+ * Hooks
  *
- * @package StarterKit\Hooks
+ * Hooks - adds VC support for StarterKit Modular theme.
+ *
+ * @category   WordPress
+ * @package    StarterKitModules\VisualComposer
+ * @author     SolidBunch
+ * @link       https://solidbunch.com
+ * @version    Release: 1.0.0
+ * @since      Class available since Release 1.0.0
  */
 class Hooks implements HooksInterface {
 
@@ -30,7 +35,7 @@ class Hooks implements HooksInterface {
 	/**
 	 * Controllers constructor.
 	 *
-	 * @param Controller $controller
+	 * @param Controller $controller - controller.
 	 */
 	public function __construct( Controller $controller ) {
 		$this->controller = $controller;

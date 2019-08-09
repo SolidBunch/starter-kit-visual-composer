@@ -1,10 +1,10 @@
 <?php
 /**
- * Visual Composer Hooks file - collect all hooks here
+ * Visual Composer Controller file - fire all hooks here
  *
  * LICENSE: GPL-3.0
  *
- * @package    StarterKit/Controllers
+ * @package    StarterKitModules\VisualComposer
  * @author     SolidBunch <contact@solidbunch.com>
  * @since      File available since Release 1.0.0
  */
@@ -12,9 +12,16 @@
 namespace StarterKitModule\VisualComposer;
 
 /**
- * Class VisualComposer
+ * Controller
  *
- * @package StarterKit\Controller
+ * Controller - adds VC support for StarterKit Modular theme.
+ *
+ * @category   WordPress
+ * @package    StarterKitModules\VisualComposer
+ * @author     SolidBunch
+ * @link       https://solidbunch.com
+ * @version    Release: 1.0.0
+ * @since      Class available since Release 1.0.0
  */
 class Controller {
 
