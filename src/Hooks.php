@@ -55,7 +55,11 @@ class Hooks implements HooksInterface {
 		add_action( 'vc_after_init', [ $this->controller, 'setup_vc' ] );
 
 		add_action( 'init', [ $this->controller, 'register_post_type' ], 5 );
+		// load admin assets
+		add_action( 'admin_enqueue_scripts', [ $this->controller, 'load_assets' ] );
 
+		// Add Custom Controls to Visual Composer
+		add_action( 'vc_load_default_params', [ $this->controller, 'register_custom_plugin_params' ] );
 
 		return true;
 	}

@@ -11,6 +11,8 @@
 
 namespace StarterKitModule\VisualComposer;
 
+use StarterKit\Helpers\Core;
+
 /**
  * Controller
  *
@@ -140,6 +142,56 @@ class Controller {
 		vc_remove_param( 'vc_row', 'gap' );
 
 		vc_disable_frontend();
+	}
+
+	/**
+	 * Load assets for extended params
+	 **/
+	public function load_assets(): void {
+		wp_enqueue_style(
+			'jsc-file_picker_field',
+			$this->get_module_uri() .'/view//file_picker_field.css', false,
+			filemtime(__DIR__ . '/../view/file_picker_field.css')
+		);
+
+	}
+
+	/**
+	 * Register custom param types
+	 */
+	public function register_custom_plugin_params(): void {
+		// file picker
+		vc_add_shortcode_param( 'file_picker', [ $this, 'create_file_picker_param' ], $this->get_module_uri() .'/view/file_picker_field.js' );
+
+	}
+
+	/**
+	 * File picker custom VC param
+	 *
+	 * @param $settings
+	 * @param $value
+	 *
+	 * @return string|void
+	 */
+	public function create_file_picker_param( $settings, $value ) {
+
+		$data = [
+			'settings' => $settings,
+			'value'    => $value
+		];
+
+		return Core::view( '/../view/param_file_picker', $data, true, __DIR__ );
+
+	}
+
+	protected function get_module_uri(): string {
+		$theme_uri  = get_template_directory_uri();
+		$theme_path = get_template_directory();
+		$full_path  = __DIR__;
+
+		$relative_path = str_replace( $theme_path . '/src', '', $full_path );
+
+		return $theme_uri . '/view/';
 	}
 
 }

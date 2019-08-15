@@ -11,8 +11,8 @@
         }
     ],
     "require": {
-        "php": ">=7.2.0",
-        "php-di/php-di": "^6.0"
+        "php-di/php-di": "^6.0",
+        "thecodingmachine/safe": "^0.1.15"
     },
     "autoload": {
         "psr-4": {
