@@ -191,7 +191,7 @@ class Controller {
 
 		$relative_path = str_replace( $theme_path . '/src', '', $full_path );
 
-		return $theme_uri . '/view/';
+		return $relative_path . '/view/';
 	}
 
 }
