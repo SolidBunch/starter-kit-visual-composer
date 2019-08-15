@@ -150,8 +150,8 @@ class Controller {
 	public function load_assets(): void {
 		wp_enqueue_style(
 			'jsc-file_picker_field',
-			$this->get_module_uri() .'/view//file_picker_field.css', false,
-			filemtime(__DIR__ . '/../view/file_picker_field.css')
+			$this->get_module_uri() .'file_picker_field.css', false
+		//filemtime(__DIR__ . '/../view/file_picker_field.css')
 		);
 
 	}
@@ -161,8 +161,7 @@ class Controller {
 	 */
 	public function register_custom_plugin_params(): void {
 		// file picker
-		vc_add_shortcode_param( 'file_picker', [ $this, 'create_file_picker_param' ], $this->get_module_uri() .'/view/file_picker_field.js' );
-
+		vc_add_shortcode_param( 'file_picker', [ $this, 'create_file_picker_param' ], $this->get_module_uri() .'file_picker_field.js' );
 	}
 
 	/**
@@ -189,9 +188,10 @@ class Controller {
 		$theme_path = get_template_directory();
 		$full_path  = __DIR__;
 
-		$relative_path = str_replace( $theme_path . '/src', '', $full_path );
+		$relative_path = str_replace( array( $theme_path, '/src' ), '', $full_path );
+		//dd( $theme_uri . $relative_path . '/view/');
 
-		return $relative_path . '/view/';
+		return $theme_uri . $relative_path . '/view/';
 	}
 
 }

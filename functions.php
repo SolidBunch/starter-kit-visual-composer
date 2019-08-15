@@ -5,7 +5,7 @@ use StarterKitModule\VisualComposer\Hooks;
 
 
 add_filter( 'starter_kit_register_module', static function ( array $class_map ) {
-	$class_map['hooks'] = Hooks::class;
+	$class_map['hooks'][] = Hooks::class;
 
 	return $class_map;
 }, 10 );
