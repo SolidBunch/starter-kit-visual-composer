@@ -10,9 +10,6 @@
             "email": "contact@solidbunch.com"
         }
     ],
-    "require": {
-        "thecodingmachine/safe": "^0.1.15"
-    },
     "autoload": {
         "psr-4": {
             "StarterKitModule\\VisualComposer\\": "src"
